@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
+dotenv.config();
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      `mongodb+srv://sharadsinha8789:sa1tya1005@cluster0.tl5r7.mongodb.net`
+    await mongoose.connect(`${process.env.MONGODB_URI}`);
+    console.log(
+      `ShopSphere DataBase Connection Successful !! Synchronising all Data`
     );
-    console.log(`ShopSphere DataBase Connection Successful !! Synchronising all Data`);
   } catch (error) {
     console.log(error);
   }
